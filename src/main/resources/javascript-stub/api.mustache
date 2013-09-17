@@ -1,0 +1,14 @@
+
+
+{{#operations}}
+
+  //Variable that contains the service
+  var {{baseName}}Service = {};
+
+  {{#operation}}
+  {{baseName}}Service.{{nickname}} = function({{#allParams}} {{paramName}},{{/allParams}} successFn, failureFn)  {
+        //Stub implementation goes here
+  };
+  {{/operation}}
+
+{{/operations}}
