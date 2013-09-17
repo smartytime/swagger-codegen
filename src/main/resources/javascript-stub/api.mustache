@@ -1,14 +1,13 @@
 
-
 {{#operations}}
 
-  //Variable that contains the service
-  var {{baseName}}Service = {};
+//Variable that contains the service
+api.{{baseName}}Service = {};
 
-  {{#operation}}
-  {{baseName}}Service.{{nickname}} = function({{#allParams}} {{paramName}},{{/allParams}} successFn, failureFn)  {
-        //Stub implementation goes here
-  };
-  {{/operation}}
+{{#operation}}
+api.{{baseName}}Service.{{nickname}} = function({{#allParams}} {{paramName}},{{/allParams}} successFn, failureFn)  {
+    //Stub implementation goes here
+};
+{{/operation}}
 
 {{/operations}}

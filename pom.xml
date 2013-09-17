@@ -245,7 +245,6 @@
         </dependency>
 
         <dependency>
-            <!--"org.rogach"                  %% "scallop"            % "0.9.4",-->
             <groupId>org.rogach</groupId>
             <artifactId>scallop_2.9.1</artifactId>
             <version>0.9.4</version>

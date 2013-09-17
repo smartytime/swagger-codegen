@@ -29,6 +29,6 @@ class BasicJavascriptGenerator extends BasicJavascriptStubGenerator {
   override def templateDir = "javascript"
 
   // where to write generated code
-  override def destinationDir = "generated-code/javascript/src/main/javascript"
+  override def destinationDir = "generated-code/javascript"
 
 }

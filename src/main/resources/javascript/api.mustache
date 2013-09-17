@@ -3,17 +3,18 @@
 
 {{#operations}}
 
-  //Variable that contains the service
-  var {{baseName}}Service = {};
 
-  {{#operation}}
-  {{baseName}}Service.{{nickname}} = function({{#allParams}} {{paramName}},{{/allParams}} successFn, failureFn)  {
-        //Simply delegate to swagger's dynamic invocation mechanism.  This code assumes there is a scoped variable
-        //named "api" that contains the actual dynamic service.  This whole block probably needs to be scoped, and the reference
-        //to the service needs to be passed into another
-        api.{{baseName}}Service.{{nickname}}({{#allParams}} {{paramName}},{{/allParams}} successFn, failureFn);
+//Simply delegate to swagger's dynamic invocation mechanism.  This code assumes there is a scoped variable
+//named "api" that contains the actual dynamic service.  This whole block probably needs to be scoped, and the reference
+//to the service needs to be passed into another
 
-  };
-  {{/operation}}
+api.{{baseName}}Service = {};
+
+{{#operation}}
+api.{{baseName}}Service.{{nickname}} = function({{#allParams}} {{paramName}},{{/allParams}} successFn, failureFn)  {
+    swagger.{{baseName}}Service.{{nickname}}({{#allParams}} {{paramName}},{{/allParams}} successFn, failureFn);
+};
+
+{{/operation}}
 
 {{/operations}}

@@ -35,7 +35,7 @@ class BasicJavascriptStubGenerator extends BasicGenerator {
   override def templateDir = "javascript-stub"
 
   // where to write generated code
-  override def destinationDir = "generated-code/javascript-stub/src/main/javascript"
+  override def destinationDir = "generated-code/javascript-stub/"
 
   // template used for models
   modelTemplateFiles += "model.mustache" -> ".js"
