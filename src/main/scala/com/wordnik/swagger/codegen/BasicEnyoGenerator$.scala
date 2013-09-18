@@ -19,11 +19,11 @@ package com.wordnik.swagger.codegen
 import com.wordnik.swagger.model._
 
 
-object BasicJavascriptGenerator extends BasicJavascriptGenerator {
+object BasicEnyoGenerator extends BasicEnyoGenerator$ {
   def main(args: Array[String]) = generateClient(args)
 }
 
-class BasicJavascriptGenerator extends BasicJavascriptStubGenerator {
+class BasicEnyoGenerator$ extends BasicEnyoStubGenerator$ {
 
   // location of templates
   override def templateDir = "javascript"

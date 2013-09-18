@@ -19,11 +19,27 @@ package com.wordnik.swagger.codegen
 import com.wordnik.swagger.model._
 
 
-object BasicJavascriptStubGenerator extends BasicJavascriptStubGenerator {
+object BasicEnyoStubGenerator$ extends BasicEnyoStubGenerator$ {
   def main(args: Array[String]) = generateClient(args)
 }
 
-class BasicJavascriptStubGenerator extends BasicGenerator {
+class BasicEnyoStubGenerator$ extends BasicGenerator {
+
+  /**
+   * These are enyo mappings
+   */
+  override def typeMapping = Map(
+    "Array" -> "array",
+    "array" -> "array",
+    "List" -> "array",
+    "boolean" -> "Boolean",
+    "string" -> "String",
+    "int" -> "Number",
+    "float" -> "Number",
+    "long" -> "Number",
+    "double" -> "Number",
+    "object" -> "Object",
+    "integer" -> "Number")
 
   // package for models
   override def modelPackage = Some("model")
@@ -43,8 +59,18 @@ class BasicJavascriptStubGenerator extends BasicGenerator {
   // template used for models
   apiTemplateFiles += "api.mustache" -> ".js"
 
-
   // file suffix
   override def fileSuffix = ".js"
 
+
+
+  override def toDeclaredType(dataType: String): String = {
+    def mappedType = typeMapping.get(dataType)
+    if (!mappedType) {
+      //Can we assume that this is a model item?
+      mappedType =
+    }
+    def rtn = super.toDeclaredType(dataType)
+    rtn
+  }
 }
