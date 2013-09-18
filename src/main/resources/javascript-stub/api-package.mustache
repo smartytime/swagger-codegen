@@ -1,0 +1,7 @@
+var apis = [];
+{{#apis}}
+apis.push("{{filename}}.js");
+{{/apis}}
+{{newline}}
+
+enyo.depends(apis);

@@ -1,12 +1,12 @@
 {{#models}}
 {{#model}}
 
-function {{classname}}() {}
-
-//Properties for the {{classname}} object
+var model = {name: "{{package}}.{{classname}}", kind: "Model", defaultSource: "sdk", attributes: {}};
 {{#vars}}
-{{classname}}.prototype.{{name}} = null; //{{{datatype}}}
+model.attributes.{{name}} = {type: "{{{datatype}}}"};
 {{/vars}}
+
+enyo.kind(model);
 
 {{/model}}
 {{/models}}
