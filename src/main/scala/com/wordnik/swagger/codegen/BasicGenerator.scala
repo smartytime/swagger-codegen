@@ -156,6 +156,8 @@ abstract class BasicGenerator extends CodegenConfig with PathUtil {
         m += "outputDirectory" -> (destinationDir + File.separator + modelPackage.getOrElse("").replace(".", File.separator))
         m += "newline" -> "\n"
 
+        appendModel(m)
+
         Some(m.toMap)
       }
       else None
@@ -182,8 +184,14 @@ abstract class BasicGenerator extends CodegenConfig with PathUtil {
       m += "outputDirectory" -> (destinationDir + File.separator + apiPackage.getOrElse("").replace(".", File.separator))
       m += "newline" -> "\n"
 
+      appendModel(m)
+
       Some(m.toMap)
     }).flatten.toList
+  }
+
+  def appendModel(model: HashMap[String, AnyRef]) = {
+    //No-op, but can be overridden in subclasses
   }
 
   def bundleToSource(bundle:List[Map[String, AnyRef]], templates: Map[String, String]): List[(String, String)] = {
