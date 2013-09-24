@@ -1,0 +1,19 @@
+//Initialize api namespace where we'll load things into.  Here we are knowingly hard-coding the namespace because it
+//allows us to take better advantage of tooling.  I don't think that's the end of the world here because we already
+//know the structure of the API objects, and they will be clearly separated by versions.
+
+api = {};
+
+//It's assumed that the "api" namespace has already been set up by the parent loader
+api.load = function(serviceName, version, initFn) {
+    //Initialize the version namespace, and pass that into the
+    //initialization function.
+
+    if(!api[version]) {
+        api[version] = {};
+    }
+
+    if(initFn) {
+        initFn(api[version]);
+    }
+};

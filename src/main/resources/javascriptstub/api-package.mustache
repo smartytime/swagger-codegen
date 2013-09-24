@@ -1,0 +1,8 @@
+//Lame, but required until I can fix the templating
+var apis = [];
+{{#apis}}
+apis.push("{{filename}}.js");
+{{/apis}}
+{{newline}}
+
+enyo.depends.apply(enyo, apis);

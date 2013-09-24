@@ -35,6 +35,9 @@ class BasicEnyoStubGenerator extends BasicGenerator {
     "boolean" -> "Boolean",
     "string" -> "String",
     "int" -> "Number",
+    "int32" -> "Number",
+    "int64" -> "Number",
+    "date-time" -> "Date",
     "float" -> "Number",
     "long" -> "Number",
     "double" -> "Number",
@@ -58,7 +61,7 @@ class BasicEnyoStubGenerator extends BasicGenerator {
   override def invokerPackage = Some("v1")
 
   // location of templates
-  override def templateDir = "javascript-stub"
+  override def templateDir = "javascriptstub"
 
   // where to write generated code
   override def destinationDir = "generated-code/javascript-stub/"
@@ -76,7 +79,7 @@ class BasicEnyoStubGenerator extends BasicGenerator {
   override def toDeclaredType(dataType: String): String = {
     def mappedType = typeMapping.get(dataType)
 
-    if (mappedType != null) {
+    if (mappedType == None) {
       //Can we assume that this is a model item?
       val rtn = modelPackage.get + "." + dataType
       return rtn
