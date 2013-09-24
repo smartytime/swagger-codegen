@@ -28,21 +28,21 @@ class BasicEnyoStubGenerator extends BasicGenerator {
   /**
    * These are enyo mappings
    */
-  override def typeMapping = Map(
-    "Array" -> "array",
-    "array" -> "array",
-    "List" -> "array",
-    "boolean" -> "Boolean",
-    "string" -> "String",
-    "int" -> "Number",
-    "int32" -> "Number",
-    "int64" -> "Number",
-    "date-time" -> "Date",
-    "float" -> "Number",
-    "long" -> "Number",
-    "double" -> "Number",
-    "object" -> "Object",
-    "integer" -> "Number")
+//  override def typeMapping = Map(
+//    "Array" -> "array",
+//    "array" -> "array",
+//    "List" -> "array",
+//    "boolean" -> "Boolean",
+//    "string" -> "String",
+//    "int" -> "Number",
+//    "int32" -> "Number",
+//    "int64" -> "Number",
+//    "date-time" -> "Date",
+//    "float" -> "Number",
+//    "long" -> "Number",
+//    "double" -> "Number",
+//    "object" -> "Object",
+//    "integer" -> "Number")
 
   override def generateClient(args: Array[String]) {
 //    this.version = args(2)
