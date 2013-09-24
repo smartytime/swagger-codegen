@@ -7,7 +7,7 @@ enyo.kind({name: "{{package}}.{{classname}}", kind: "Model", defaultSource: "sdk
     attributes: {
 
     },
-    format: function(data) {
+    parse: function(data) {
         {{#vars}}
         {{#complexType}}
         this.{{name}} = new {{datatype}}(data.{{name}} || {});
