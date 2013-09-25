@@ -17,6 +17,6 @@
 package com.wordnik.swagger.codegen.spec
 
 object SwaggerSpec {
-  val primitives = List("int32", "int64", "string", "long", "double", "float", "boolean", "void")
+  val primitives = List("date", "date-time", "int32", "int64", "string", "long", "double", "float", "boolean", "void")
   val containers = List("List", "Map", "Set", "Array")
 }

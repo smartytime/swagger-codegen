@@ -7,12 +7,15 @@ enyo.kind({name: "{{package}}.{{classname}}", kind: "Model", defaultSource: "sdk
     attributes: {
 
     },
-    format: function(data) {
+    parse: function(data) {
         {{#vars}}
         {{#complexType}}
-        this.{{name}} = new {{datatype}}(data.{{name}} || {});
+        {{#isNotContainer}}
+        data.{{name}} = this.store.createRecord("{{datatype}}", data.{{name}} || {}, {parse: true});
+        {{/isNotContainer}}
         {{/complexType}}
         {{/vars}}
+{{newline}}        return data;
 {{newline}}    }
 
 });
