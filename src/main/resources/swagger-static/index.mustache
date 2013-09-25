@@ -14,7 +14,7 @@
 <body>
   <div class="header">
     <div class="top-bar">
-      <h1 id="logo"><a class="logo" href="/"><span>Swagger</span><span class="light">API Docs</span></a></h1>
+      <h1 id="logo"><a class="logo" href="/docs/"><span>Swagger</span><span class="light">API Docs</span></a></h1>
     </div>
   </div>
   <div class="model-container"></div>
@@ -32,12 +32,12 @@
     		{{#apis}}
         <div class="section-box">
           <div class="section-header">
-            <a href="/#!/{{className}}">{{className}}</a>
+            <a href="/docs/#!/{{className}}">{{className}}</a>
           </div>
           <ul>
 			      {{#operations}}
 			      {{#operation}}
-            <li><a href="/#!/{{className}}#{{nickname}}">{{nickname}}</a></li>
+            <li><a href="/docs/#!/{{className}}#{{nickname}}">{{nickname}}</a></li>
             {{/operation}}
             {{/operations}}
           </ul>

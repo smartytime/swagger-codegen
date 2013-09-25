@@ -15,7 +15,12 @@ api.load("{{baseName}}", "{{invokerPackage}}", function(ns) {
     ns.{{baseName}}Service = {};
 {{#operation}}{{newline}}
     /**
-     * {{description}}
+     * {{summary}}
+     *
+     * {{notes}}
+     *
+{{#allParams}}{{newline}}     * {{paramName}}: {{description}}{{newline}}
+{{/allParams}}{{newline}}
      */
     ns.{{baseName}}Service.{{nickname}} = function({{#allParams}} {{paramName}}, {{/allParams}} successFn, failureFn)  {
         //Stub implementation goes here

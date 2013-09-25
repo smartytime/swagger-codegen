@@ -13,7 +13,7 @@ enyo.kind({name: "{{package}}.{{classname}}", kind: "Model", defaultSource: "sdk
         this.{{name}} = new {{datatype}}(data.{{name}} || {});
         {{/complexType}}
         {{/vars}}
-    }
+{{newline}}    }
 
 });
 
@@ -26,7 +26,9 @@ enyo.kind({name: "{{package}}.{{classname}}", kind: "Model", defaultSource: "sdk
 {{#model}}
 
 {{#vars}}
+//{{description}}
 {{package}}.{{classname}}.prototype.{{name}} = null;
+
 {{/vars}}
 
 {{/model}}

@@ -25,10 +25,10 @@ object SwaggerDocGenerator extends BasicGenerator {
 
   override def templateDir = "src/main/resources/swagger-static"
 
-  val outputFolder = "samples/docs/swagger-static-docs"
+  val outputFolder = "generated0-code/docs/v1/goldfish-docs"
 
   // where to write generated code
-  override def destinationDir = outputFolder + "/src/main/webapp"
+  override def destinationDir = outputFolder + "/"
 
   // template used for apis
   apiTemplateFiles += "operation.mustache" -> ".html"
