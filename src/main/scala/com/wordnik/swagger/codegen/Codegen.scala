@@ -457,6 +457,7 @@ class Codegen(config: CodegenConfig) {
                 case _ => baseType
               }
           },
+          "isId" -> config.toVarName(prop._1).equals("id"),
           "baseTypeVarName" -> config.toVarName(baseType),
           "baseName" -> prop._1,
           "datatype" -> config.toDeclaration(propertyDocSchema)._1,

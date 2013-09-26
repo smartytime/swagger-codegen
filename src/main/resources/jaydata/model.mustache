@@ -1,0 +1,25 @@
+{{#models}}
+{{#model}}
+
+$data.Entity.extend("{{package}}.{{classname}}", {
+{{#vars}}
+{{^complexType}}
+{{newline}}    //{{description}}{{newline}}    {{name}}: { {{#isId}}key: true, {{/isId}}type: "{{datatype}}"}{{#hasMore}},{{/hasMore}}
+{{/complexType}}
+{{#complexType}}
+{{#isContainer}}
+{{newline}}    //{{description}}{{newline}}    {{name}}: { type: "Array", elementType: "{{datatype}}"}{{#hasMore}},{{/hasMore}}
+{{/isContainer}}
+{{^isContainer}}
+{{newline}}    //{{description}}{{newline}}    {{name}}: { type: "{{datatype}}"}{{#hasMore}},{{/hasMore}}
+{{/isContainer}}
+{{/complexType}}
+{{/vars}}
+{{newline}}
+});
+
+{{/model}}
+{{/models}}
+{{newline}}
+
+

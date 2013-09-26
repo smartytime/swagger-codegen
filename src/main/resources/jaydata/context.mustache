@@ -1,0 +1,11 @@
+$data.EntityContext.extend("{{modelPackage}}.GoldfishCtx", {
+{{newline}}{{#models}}
+{{#model}}
+{{newline}}    {{classname}}: { type: $data.EntitySet, elementType: {{modelPackage}}.{{classname}} }{{#hasMore}},{{/hasMore}}
+{{/model}}
+{{/models}}
+{{newline}}
+});
+
+
+

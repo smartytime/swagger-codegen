@@ -19,43 +19,40 @@ package com.wordnik.swagger.codegen
 import com.wordnik.swagger.model._
 
 
-object BasicEnyoStubGenerator extends BasicEnyoStubGenerator {
+object BasicJavascriptStubGenerator extends BasicJavascriptStubGenerator {
   def main(args: Array[String]) = generateClient(args)
 }
 
-class BasicEnyoStubGenerator extends BasicGenerator {
+class BasicJavascriptStubGenerator extends BasicGenerator {
 
   /**
    * These are enyo mappings
    */
-//  override def typeMapping = Map(
-//    "Array" -> "array",
-//    "array" -> "array",
-//    "List" -> "array",
-//    "boolean" -> "Boolean",
-//    "string" -> "String",
-//    "int" -> "Number",
-//    "int32" -> "Number",
-//    "int64" -> "Number",
-//    "date-time" -> "Date",
-//    "float" -> "Number",
-//    "long" -> "Number",
-//    "double" -> "Number",
-//    "object" -> "Object",
-//    "integer" -> "Number")
+  //  override def typeMapping = Map(
+  //    "Array" -> "array",
+  //    "array" -> "array",
+  //    "List" -> "array",
+  //    "boolean" -> "Boolean",
+  //    "string" -> "String",
+  //    "int" -> "Number",
+  //    "int32" -> "Number",
+  //    "int64" -> "Number",
+  //    "date-time" -> "Date",
+  //    "float" -> "Number",
+  //    "long" -> "Number",
+  //    "double" -> "Number",
+  //    "object" -> "Object",
+  //    "integer" -> "Number")
 
   override def generateClient(args: Array[String]) {
-//    this.version = args(2)
+    //    this.version = args(2)
     super.generateClient(args)
   }
 
-//  def version = "v1"
-
-  // package for models
-  override def modelPackage = Some("v1.model")
+  //  def version = "v1"
 
   // package for api classes
-  override def apiPackage = Some("v1.api")
+  override def apiPackage = Some("v1")
 
   //The package that will define the version for this api
   override def invokerPackage = Some("v1")
@@ -65,9 +62,6 @@ class BasicEnyoStubGenerator extends BasicGenerator {
 
   // where to write generated code
   override def destinationDir = "generated-code/javascript-stub/"
-
-  // template used for models
-  modelTemplateFiles += "model.mustache" -> ".js"
 
   // template used for models
   apiTemplateFiles += "api.mustache" -> ".js"
@@ -90,21 +84,17 @@ class BasicEnyoStubGenerator extends BasicGenerator {
 
   }
 
-//  override def appendModel(model: Map[String, AnyRef]) {
-//    model += "version" -> this.version
-//  }
-
+  //  override def appendModel(model: Map[String, AnyRef]) {
+  //    model += "version" -> this.version
+  //  }
 
 
   // supporting classes
   override def supportingFiles =
     List(
       ("api-package.mustache", destinationDir + java.io.File.separator + apiPackage.get.replace(".", java.io.File.separator) + java.io.File.separator, "package.js"),
-      ("model-package.mustache", destinationDir + java.io.File.separator + modelPackage.get.replace(".", java.io.File.separator) + java.io.File.separator, "package.js"),
-      ("invoker-package.mustache", destinationDir + java.io.File.separator + invokerPackage.get.replace(".", java.io.File.separator) + java.io.File.separator, "package.js"),
-      ("api-lib.mustache", destinationDir + java.io.File.separator, "api-lib.js"))
-
-  //      ("root-package.mustache", destinationDir + java.io.File.separator, "package.js"))
+      ("api-lib.mustache", destinationDir + java.io.File.separator, "api-lib.js"),
+      ("root-package.mustache", destinationDir + java.io.File.separator, "package.js"))
 
 
 }
