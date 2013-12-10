@@ -29,21 +29,22 @@ class BasicJayDataModelGenerator extends BasicEnyoModelGenerator {
   /**
    * These are enyo mappings
    */
-  //  override def typeMapping = Map(
-  //    "Array" -> "array",
-  //    "array" -> "array",
-  //    "List" -> "array",
-  //    "boolean" -> "Boolean",
-  //    "string" -> "String",
-  //    "int" -> "Number",
-  //    "int32" -> "Number",
-  //    "int64" -> "Number",
-  //    "date-time" -> "Date",
-  //    "float" -> "Number",
-  //    "long" -> "Number",
-  //    "double" -> "Number",
-  //    "object" -> "Object",
-  //    "integer" -> "Number")
+  override def typeMapping = Map(
+    "Array" -> "Array",
+    "array" -> "Array",
+    "List" -> "Array",
+    "Collection" -> "Array",
+    "boolean" -> "bool",
+    "string" -> "string",
+    "int" -> "int",
+    "int32" -> "int",
+    "int64" -> "int",
+    "date-time" -> "datetime",
+    "float" -> "number",
+    "long" -> "int",
+    "double" -> "number",
+    "object" -> "Object",
+    "integer" -> "int")
 
   override def generateClient(args: Array[String]) {
     //    this.version = args(2)
@@ -53,7 +54,7 @@ class BasicJayDataModelGenerator extends BasicEnyoModelGenerator {
   //  def version = "v1"
 
   // package for models
-  override def modelPackage = Some("v1")
+  override def modelPackage = Some("v1.model")
 
   // package for api classes
   override def apiPackage = Some("v1.api")
@@ -68,7 +69,7 @@ class BasicJayDataModelGenerator extends BasicEnyoModelGenerator {
   override def destinationDir = "generated-code/jaydata-model/"
 
   // template used for models
-//  modelTemplateFiles += "model.mustache" -> ".js"
+  //  modelTemplateFiles += "model.mustache" -> ".js"
 
 
   // file suffix
@@ -77,16 +78,17 @@ class BasicJayDataModelGenerator extends BasicEnyoModelGenerator {
 
   override def toDeclaredType(dataType: String): String = {
     def mappedType = typeMapping.get(dataType)
-    if (SwaggerSpec.primitives.contains(dataType)) {
-      return dataType
-    } else if (mappedType == None) {
-      //Can we assume that this is a model item?
-      val rtn = modelPackage.get + "." + dataType
-      return rtn
-    } else {
+
+    if (mappedType != None) {
       val rtn = super.toDeclaredType(dataType)
       return rtn
+    } else if (SwaggerSpec.primitives.contains(dataType)) {
+      return dataType
+    } else {
+      val rtn = modelPackage.get + "." + dataType
+      return rtn
     }
+
 
   }
 

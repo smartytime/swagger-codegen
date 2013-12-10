@@ -22,7 +22,7 @@ api.load("{{baseName}}", "{{invokerPackage}}", function(ns) {
 {{#allParams}}{{newline}}     * {{paramName}}: {{description}}{{newline}}
 {{/allParams}}{{newline}}
      */
-    ns.{{baseName}}Service.{{nickname}} = function({{#allParams}} {{paramName}}, {{/allParams}} successFn, failureFn)  {
+    ns.{{baseName}}Service.{{nickname}} = function({{#allParams}} {{paramName}}{{#hasMore}}, {{/hasMore}}{{/allParams}})  {
         //Stub implementation goes here
     };
 {{/operation}}

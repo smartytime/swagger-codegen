@@ -1,23 +1,23 @@
 {{#models}}
 {{#model}}
-/**
- * {{description}}
- */
 enyo.kind({name: "{{package}}.{{classname}}", kind: "Model", defaultSource: "sdk",
-    attributes: {
-
-    },
     parse: function(data) {
+        var parsed = {};
         {{#vars}}
         {{#complexType}}
         {{#isNotContainer}}
-        data.{{name}} = this.store.createRecord("{{datatype}}", data.{{name}} || {}, {parse: true});
+        parsed.{{name}} = new {{datatype}}(data.{{name}} || {}, {parse: true});
         {{/isNotContainer}}
+        {{#isContainer}}
+        parsed.{{name}} = data.{{name}};
+        {{/isContainer}}
         {{/complexType}}
-        {{/vars}}
-{{newline}}        return data;
-{{newline}}    }
+        {{^complexType}}
+        parsed.{{name}} = data.{{name}};
+        {{/complexType}}
 
+        {{/vars}}        return parsed;
+    }
 });
 
 {{/model}}
@@ -31,7 +31,6 @@ enyo.kind({name: "{{package}}.{{classname}}", kind: "Model", defaultSource: "sdk
 {{#vars}}
 //{{description}}
 {{package}}.{{classname}}.prototype.{{name}} = null;
-
 {{/vars}}
 
 {{/model}}
