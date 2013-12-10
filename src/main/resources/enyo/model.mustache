@@ -8,14 +8,22 @@ enyo.kind({name: "{{package}}.{{classname}}", kind: "Model", defaultSource: "sdk
 
     },
     parse: function(data) {
+        var rtn = {};
         {{#vars}}
         {{#complexType}}
         {{#isNotContainer}}
-        data.{{name}} = this.store.createRecord("{{datatype}}", data.{{name}} || {}, {parse: true});
+        rtn.{{name}} = this.store.createRecord("{{datatype}}", data.{{name}} || {}, {parse: true});
         {{/isNotContainer}}
+        {{#isContainer}}
+        rtn.{{name}} = data.{{name}};
+        {{/isContainer}}
         {{/complexType}}
+        {{^complexType}}
+        rtn.{{name}} = data.{{name}};
+        {{/complexType}}
+
         {{/vars}}
-{{newline}}        return data;
+{{newline}}        return rtn;
 {{newline}}    }
 
 });

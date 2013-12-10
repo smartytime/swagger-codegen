@@ -581,7 +581,7 @@ class Codegen(config: CodegenConfig) {
     engine.compiler.shutdown()
   }
 
-  protected def isListType(dt: String) = isCollectionType(dt, "List") || isCollectionType(dt, "Array") || isCollectionType(dt, "Set")
+  protected def isListType(dt: String) = isCollectionType(dt, "Collection") || isCollectionType(dt, "List") || isCollectionType(dt, "Array") || isCollectionType(dt, "Set")
 
   protected def isMapType(dt: String) = isCollectionType(dt, "Map")
 
