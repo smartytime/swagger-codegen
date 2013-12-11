@@ -28,8 +28,8 @@ class BasicEnyoModelGenerator extends BasicGenerator {
   /**
    * These are enyo mappings
    */
-  //  override def typeMapping = Map(
-  //    "Array" -> "array",
+    override def typeMapping = Map(
+      "Collection" -> "Set"
   //    "array" -> "array",
   //    "List" -> "array",
   //    "boolean" -> "Boolean",
@@ -42,7 +42,7 @@ class BasicEnyoModelGenerator extends BasicGenerator {
   //    "long" -> "Number",
   //    "double" -> "Number",
   //    "object" -> "Object",
-  //    "integer" -> "Number")
+  )
 
   override def generateClient(args: Array[String]) {
     //    this.version = args(2)
